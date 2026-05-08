@@ -1,0 +1,73 @@
+{
+  "name": "HR Attendance Automation Prototype",
+  "nodes": [
+    {
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook"
+    },
+    {
+      "name": "Extract from File",
+      "type": "n8n-nodes-base.extractFromFile"
+    },
+    {
+      "name": "Code",
+      "type": "n8n-nodes-base.code"
+    },
+    {
+      "name": "Google Sheets Read",
+      "type": "n8n-nodes-base.googleSheets"
+    },
+    {
+      "name": "AI Warning Generator",
+      "type": "@n8n/n8n-nodes-langchain.openAi"
+    },
+    {
+      "name": "Google Calendar",
+      "type": "n8n-nodes-base.googleCalendar"
+    },
+    {
+      "name": "Append Row",
+      "type": "n8n-nodes-base.googleSheets"
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          "Extract from File"
+        ]
+      ]
+    },
+    "Extract from File": {
+      "main": [
+        [
+          "Code"
+        ]
+      ]
+    },
+    "Code": {
+      "main": [
+        [
+          "Google Sheets Read"
+        ]
+      ]
+    },
+    "Google Sheets Read": {
+      "main": [
+        [
+          "AI Warning Generator"
+        ]
+      ]
+    },
+    "AI Warning Generator": {
+      "main": [
+        [
+          "Google Calendar"
+        ],
+        [
+          "Append Row"
+        ]
+      ]
+    }
+  }
+}

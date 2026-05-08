@@ -1,0 +1,13 @@
+
+AIRTABLE SETUP TEST
+
+1. Create Airtable account
+2. Create Base
+3. Add columns:
+   - Name
+   - Number
+   - Lead Priority
+
+4. Add 3 rows
+5. Group by Lead Priority
+6. Capture screenshot
